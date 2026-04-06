@@ -33,7 +33,20 @@ See:
 - [after.xml](./artifacts/after.xml)
 
 You do not need to read the entire dump file.
-The key point is the filtered subset of lines that show injected `resource-id`s and the final UI state.
+The useful comparison is:
+
+- the baseline screen content before injector-driven actions
+- the filtered subset of final dump lines after injection and JSB automation
+
+Before, the demo screen starts from ordinary app content such as:
+
+```text
+text="请先选择一个选项"
+text="弹窗状态：未打开"
+```
+
+At that point there is no injector-specific Android evidence to point at yet.
+What matters is that, after injection, the final dump contains new native-side identifiers that did not exist in the baseline UI content.
 
 Representative lines from the final dump:
 
@@ -67,7 +80,7 @@ The video shows the automated flow:
 - click target
 
 This is the primary demo artifact.
-The screenshots remain in `artifacts/` only as supporting material, but the README intentionally focuses on the video plus the filtered XML evidence.
+The README intentionally focuses on the video plus the filtered XML evidence.
 
 ## JSB Examples
 
