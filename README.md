@@ -24,24 +24,6 @@ The validated demo flow in `SimpleApp` is:
 7. custom JSB clicks `选项 80`
 8. UI ends in the state `你选择了：选项 80`
 
-## Visual Demo
-
-### Before
-
-This screenshot was captured before the automatic scripted interaction runs.
-
-![Before visual](./artifacts/before_visual.png)
-
-### After
-
-This screenshot was captured after the custom JSB:
-
-- closed the modal
-- scrolled to `选项 80`
-- clicked `选项 80`
-
-![After visual](./artifacts/after.png)
-
 ## Android-side `testID` Evidence
 
 On Android RN, injected `testID` is surfaced in `uiautomator dump` as `resource-id`.
@@ -50,14 +32,26 @@ See:
 
 - [after.xml](./artifacts/after.xml)
 
+You do not need to read the entire dump file.
+The key point is the filtered subset of lines that show injected `resource-id`s and the final UI state.
+
 Representative lines from the final dump:
 
 ```xml
+resource-id="auto_RCTView"
 resource-id="auto_RCTScrollView"
 resource-id="auto_RCTText__80"
+content-desc="选项 80"
 text="你选择了：选项 80"
 text="弹窗状态：已关闭"
 ```
+
+What this proves:
+
+- the RN-side `testID` patch reached Android native views
+- Android exposed those injected values as `resource-id`
+- the scripted flow really reached `选项 80`
+- the dialog-close helper really dismissed the modal
 
 ## Video
 
@@ -71,6 +65,9 @@ The video shows the automated flow:
 - modal open / close
 - scroll to target
 - click target
+
+This is the primary demo artifact.
+The screenshots remain in `artifacts/` only as supporting material, but the README intentionally focuses on the video plus the filtered XML evidence.
 
 ## JSB Examples
 
