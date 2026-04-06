@@ -1,32 +1,6 @@
 # android-rn-testid-hook-exam
 
-## 中文简介
-
-这是 `android-rn-testid-hook` 的演示仓库，用来展示这套方案在真实 Android React Native 应用里的三个核心能力：
-
-1. 自动给 RN 原生视图注入 `testID`
-2. 在业务 bundle `runModule` 之前注入自定义 JSB
-3. 通过通用 JSB API 完成自动化交互，例如关闭弹窗、滚动到指定文本、点击指定文本
-
-这个 demo 基于 `SimpleApp` 完成验证，当前主线范围是：
-
-- `Dobby`
-- `arm64-v8a`
-- Hermes
-- New Architecture / bridgeless `ReactHost`
-
-如果你只想快速看结果，优先看下面两个素材：
-
-- [demo.mp4](./artifacts/demo.mp4)：完整录屏演示
-- [after.xml](./artifacts/after.xml)：Android `uiautomator dump` 证据
-
-其中最关键的结论是：
-
-- 注入后的 RN `testID` 最终会在 Android 侧表现为 `resource-id`
-- 自定义 JSB 可以在 app 正常启动前插入并执行
-- 通用交互 API 已经在真实页面上验证通过，包括弹窗关闭、长列表滚动和按文本点击
-
----
+[中文说明](./README.zh-CN.md)
 
 Demo artifacts for `android-rn-testid-hook`.
 
